@@ -1,10 +1,10 @@
 <?php
     function getEntry($a, $b) {
         $prod = $a * $b;
-        return ("<td>{$prod}</td>");
+        return ("<td align=\"center\">{$prod}</td>");
     }
 
-    echo "<table align=\"center\">";
+    echo "<table>";
     echo "<tr><td>&nbsp;</td>";
     for ($x = 1; $x <= 100; $x++) {
         echo "<th scope=\"col\"> $x </th>";
