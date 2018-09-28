@@ -1,16 +1,22 @@
 <?php
-    function getEntry($x, $y) {
-        return "<td>" . $x * $y . "</td>";
+    function getEntry($a, $b) {
+        $prod = $a * $b;
+        return ("<td>{$prod}</td>");
     }
 
-    echo "<table>";
+    echo "<table align=\"center\">";
+    echo "<tr><td>&nbsp;</td>";
     for ($x = 1; $x <= 100; $x++) {
-        $row = "<tr>";
+        echo "<th scope=\"col\"> $x </th>";
+    }
+    echo "</tr>";
+    for ($x = 1; $x <= 100; $x++) {
+        echo "<tr><th scope=\"row\"> $x </th>";
         for ($y = 1; $y <= 100; $y++) {
-            $row += getEntry($x,$y);
+            $entry = getEntry($x,$y);
+            echo "$entry";
         }
-        $row += "</tr>";
-        echo $row;
+        echo "</tr>";
     }
     echo "</table>";
->
+?>
