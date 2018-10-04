@@ -1,0 +1,9 @@
+button {
+    font-size: 20px;
+    border: 1pt groove #663333;
+}
+
+input.button {
+    font-size:20px;
+    background-color: #FFE1DC;
+}
