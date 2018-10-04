@@ -1,6 +1,7 @@
 <html>
     <head>
-        <script src="js/password.js"> </script>
+        <script src="optionHandler.js"> </script>
+        <script src="resetHandler.js"> </script>
         <link rel="stylesheet" href="style.css"/>
         <title>
             Storefront
@@ -18,27 +19,47 @@
         <div class="content">
             <form id="form" action="customerBackend.php" method="POST">
                 <fieldset id="itemSelection">
-                    <legend>Select your goods (CTRL + Click for multiple selections)</legend>
-                    <select>
-                        <option value="an old shoe">The Worlds Greatest Shoe (Left)</option>
-                        <option value="pre-chewed gum">PerfectStick Custom Wall Adhesive</option>
-                        <option value="literally a rock">Premium Organic Paperweight</option>
-                    </select>
-                </fieldset>
-                <fieldset id="shipping">
-                    <legend>Q2: What is the capital of Tunisia?</legend>
+                    <legend>Select your goods</legend>
                     <div>
-                        <input type="radio" name="shipping" id="sevenday" value="0.00">
-                        <label form="form" for="q2_a"><b>Free</b> 7-Day Shipping</label><br>
-                        <input type="radio" name="shipping" id="overnight" value="50.00">
-                        <label form="form" for="q2_b"><b>$50.00</b> Overnight Shipping</label><br>
-                        <input type="radio" name="shipping" id="threeday" value="5.00">
-                        <label form="form" for="q2_c"><b>$5.00</b> 3-Day Shipping</label><br>
+                        <input class="option-checkbox" type="checkbox" id="shoeCheck" name="shoeSelected">
+                        <div class="option-container" id="shoeContainer" onclick="selectOption('shoeCheck','numShoes','shoeContainer')">
+                            <img class="option-image" src="img/noun_shoes_173565.png">  
+                            <div class="option-label"><p>The Worlds Greatest Shoe<sup>1</sup></p></div>
+                            <input class="option-number" type="number" id="numShoes" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
+                        </div>
+                        <input class="option-checkbox" type="checkbox" name="penSelected" id="penCheck">
+                        <div class="option-container" id="penContainer" onclick="selectOption('penCheck','numPens','penContainer')" >
+                            <img class="option-image" src="img/noun_Pen_838648.png">  
+                            <div class="option-label"><p>PerfectWrite Custom Inkpen<sup>2</sup></p></div>
+                            <input class="option-number" type="number" id="numPens" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
+                        </div>
+                        <input class="option-checkbox" type="checkbox" name="rockSelected" id="rockCheck">
+                        <div class="option-container" id="rockContainer" onclick="selectOption('rockCheck','numRocks','rockContainer')">
+                            <img class="option-image" src="img/noun_rock_711504.png">  
+                            <div class="option-label"><p>Organic+ Paperweight<sup>3</sup></p></div>
+                            <input class="option-number" type="number" id="numRocks" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
+                        </div>
                     </div>
                 </fieldset>
-                <button type="reset" value="Reset">Reset</button>
+                <fieldset id="shipping">
+                    <legend>Shipping</legend>
+                    <div>
+                        <input type="radio" name="shipping" id="sevenday" value="0.00">
+                        <label form="form" for="q2_a"><b>Free</b> 7 Business Days</label><br>
+                        <input type="radio" name="shipping" id="overnight" value="50.00">
+                        <label form="form" for="q2_b"><b>$50.00</b> Overnight</label><br>
+                        <input type="radio" name="shipping" id="threeday" value="5.00">
+                        <label form="form" for="q2_c"><b>$5.00</b> 3 Business Days</label><br>
+                    </div>
+                </fieldset>
+                <button type="reset" value="Reset" onclick="reset()">Reset</button>
                 <input class="button" type="submit" value="Submit">
             </form>
         </div>
     </main>
+    <footer>
+        [1]: shoes by TS Graphics from the Noun Project<br>
+        [2]: Pen by Dev Patel from the Noun Project<br>
+        [3]: rock by Kevin from the Noun Project
+    </footer>
 </html>
