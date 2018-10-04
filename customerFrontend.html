@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script src="js/password.js"> </script>
+        <link rel="stylesheet" href="style.css"/>
+        <title>
+            Storefront
+        </title>
+    </head>
+    <header>
+        <nav>
+            <a href="../../index.html">Home</a>
+            &#x2712;
+            <a href="index.html">Lab 04</a>
+        </nav>
+    </header>
+    <main>
+        <div class="content titlebox"><h1>The World's Finest Goods</h1></div>
+        <div class="content">
+            <form id="form" action="customerBackend.php" method="POST">
+                <fieldset id="itemSelection">
+                    <legend>Select your goods (CTRL + Click for multiple selections)</legend>
+                    <select>
+                        <option value="an old shoe">The Worlds Greatest Shoe (Left)</option>
+                        <option value="pre-chewed gum">PerfectStick Custom Wall Adhesive</option>
+                        <option value="literally a rock">Premium Organic Paperweight</option>
+                    </select>
+                </fieldset>
+                <fieldset id="shipping">
+                    <legend>Q2: What is the capital of Tunisia?</legend>
+                    <div>
+                        <input type="radio" name="shipping" id="sevenday" value="0.00">
+                        <label form="form" for="q2_a"><b>Free</b> 7-Day Shipping</label><br>
+                        <input type="radio" name="shipping" id="overnight" value="50.00">
+                        <label form="form" for="q2_b"><b>$50.00</b> Overnight Shipping</label><br>
+                        <input type="radio" name="shipping" id="threeday" value="5.00">
+                        <label form="form" for="q2_c"><b>$5.00</b> 3-Day Shipping</label><br>
+                    </div>
+                </fieldset>
+                <button type="reset" value="Reset">Reset</button>
+                <input class="button" type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+</html>
