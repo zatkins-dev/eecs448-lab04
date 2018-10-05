@@ -13,7 +13,7 @@ function checkForm() {
         alert("Login info blank");
     }
     let properEmail = true;
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username.value)) {
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username.value))) {
         properEmail = false;
         alert("Username not in the form of an email address");
     }
@@ -32,7 +32,7 @@ function checkForm() {
     }
     let countsCorrect = true;
     for (let count of itemCounts) {
-        if (count.value !== Math.floor(count.value)) {
+        if (count.value != Math.floor(count.value)) {
             countsCorrect = false;
             alert("Must have an integer count");
         }
