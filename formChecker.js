@@ -7,9 +7,9 @@ function checkForm() {
 
     let shipping = [document.getElementById("sevenday"), document.getElementById("threeday"), document.getElementById("overnight")];
 
-    let loginBlank = true;
-    if (username.value && password.value) {
-        loginBlank = false;
+    let loginFilled = true;
+    if (!(username.value && password.value)) {
+        loginFilled = false;
         alert("Login info blank");
     }
     let properEmail = true;
@@ -26,7 +26,7 @@ function checkForm() {
     if (!shippingSelection) alert("Select a shipping option");
     let anItemSelected = false;
     for (let item of items) {
-        if (r.checked) {
+        if (item.checked) {
             anItemSelected = true;
         }
     }
@@ -41,7 +41,7 @@ function checkForm() {
             alert("Must have positive count");
         }
     }
-    if (loginBlank && properEmail && shippingSelection && anItemSelected && countsCorrect) {
+    if (loginFilled && properEmail && shippingSelection && anItemSelected && countsCorrect) {
         return true;
     }
     event.preventDefault();
