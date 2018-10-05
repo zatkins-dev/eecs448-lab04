@@ -32,10 +32,6 @@ function checkForm() {
     }
     let countsCorrect = true;
     for (let count of itemCounts) {
-        if (count.value != Math.floor(count.value)) {
-            countsCorrect = false;
-            alert("Must have an integer count");
-        }
         if (count.value < 0) {
             countsCorrect = false;
             alert("Must have positive count");
