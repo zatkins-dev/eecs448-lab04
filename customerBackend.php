@@ -45,6 +45,7 @@
     switch ($shippingCost):
         case 0:
             $shippingType = "7 Day";
+            $shippingCost = "0";
             break;
         case 5:
             $shippingType = "3 Day";
