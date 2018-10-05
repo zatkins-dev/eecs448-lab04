@@ -5,4 +5,5 @@ function resetForm() {
         c.firstElementChild.checked = false;
         c.firstElementChild.onchange();
     }
+    console.log("reset");
 }
