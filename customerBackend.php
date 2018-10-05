@@ -77,10 +77,5 @@
     echo "<tr><th scope=\"row\" colspan=\"3\"> Total </th><td> \$$total.00 </td></tr>";
     echo "</table>";
     echo "</div>";
-
-    
-
-
-
     echo "</div></main></html>";
 ?>
