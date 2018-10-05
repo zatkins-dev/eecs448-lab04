@@ -13,8 +13,29 @@ function checkForm() {
         alert("Login info blank");
     }
     let properEmail = true;
-    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username.value))) {
+    // email check
+    let emailStr = username.value;
+    let atLocation = emailStr.indexOf("@");
+    if (atLocation <= 1) {
         properEmail = false;
+    } else {
+        let firstHalf = emailStr.substring(0,atLocation);
+        let lastHalf = emailStr.substring(atLocation+1, emailStr.length);
+        let periodLocation = lastHalf.indexOf(".");
+        if (firstHalf.length === 0 || lastHalf.length === 0) {
+            properEmail = false;
+        }
+        else if (periodLocation === -1 || periodLocation === 0 || periodLocation === lastHalf.length-1){
+            properEmail = false;
+        }
+        else if (!/^\w+([\.-]?\w+)*/.test(firstHalf)) {
+            properEmail = false;
+        }
+        else if (!/\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(lastHalf)) {
+            properEmail = false;
+        }
+    }
+    if (properEmail === false) {
         alert("Username not in the form of an email address");
     }
     let shippingSelection = false;
