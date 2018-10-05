@@ -30,6 +30,7 @@ function checkForm() {
             anItemSelected = true;
         }
     }
+    if (!anItemSelected) alert("Must select at least one item");
     let countsCorrect = true;
     for (let count of itemCounts) {
         if (count.value < 0) {
