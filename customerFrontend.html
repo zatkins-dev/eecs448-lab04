@@ -2,6 +2,7 @@
 <head>
     <script src="optionHandler.js"> </script>
     <script src="resetHandler.js"> </script>
+    <script src="formChecker.js"> </script>
     <link rel="stylesheet" href="style.css"/>
     <title>
         Storefront
@@ -18,7 +19,7 @@
     <main onload="alert('fired2');">
         <div class="content titlebox"><h1>The World's Finest Goods</h1></div>
         <div class="content">
-            <form id="form" action="customerBackend.php" method="POST" onreset="resetForm()">
+            <form id="form" action="customerBackend.php" method="POST" onreset="resetForm()" onsubmit="return checkForm()">
                 <fieldset id="login">
                     <legend>Login</legend>
                     <label>Username: </label> <input type="text" id="user" name="user" placeholder="user"><br>
