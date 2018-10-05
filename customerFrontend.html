@@ -1,12 +1,13 @@
 <html>
-    <head>
-        <script src="optionHandler.js"> </script>
-        <script src="resetHandler.js"> </script>
-        <link rel="stylesheet" href="style.css"/>
-        <title>
-            Storefront
-        </title>
-    </head>
+<head>
+    <script src="optionHandler.js"> </script>
+    <script src="resetHandler.js"> </script>
+    <link rel="stylesheet" href="style.css"/>
+    <title>
+        Storefront
+    </title>
+</head>
+<body onload="resetForm()">
     <header>
         <nav>
             <a href="../../index.html">Home</a>
@@ -14,42 +15,47 @@
             <a href="index.html">Lab 04</a>
         </nav>
     </header>
-    <main>
+    <main onload="alert('fired2');">
         <div class="content titlebox"><h1>The World's Finest Goods</h1></div>
         <div class="content">
             <form id="form" action="customerBackend.php" method="POST" onreset="resetForm()">
+                <fieldset id="login">
+                    <legend>Login</legend>
+                    <label>Username: </label> <input type="text" id="user" name="user" placeholder="user"><br>
+                    <label>Password: </label> <input type="password" id="pass" name="pass" placeholder="password">
+                </fieldset>
                 <fieldset id="itemSelection">
                     <legend>Select your goods</legend>
                     <div>
                         <div class="option-container" id="shoeContainer" onclick="selectOption('shoeCheck')">
                             <input class="option-checkbox" type="checkbox" id="shoeCheck" name="shoeSelected" onchange="updateOptionBox('shoeCheck','numShoes','shoeContainer')">
                             <img class="option-image" src="img/noun_shoes_173565.png">  
-                            <div class="option-label"><p>The Worlds Greatest Shoe<sup>1</sup></p></div>
-                            <input class="option-number" type="number" id="numShoes" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
+                            <div class="option-label"><p>The Worlds Greatest Shoe<sup>1</sup></p><p>$50.00</p></div>
+                            <input class="option-number" type="number" id="numShoes" name="numShoes" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
                         </div>
                         <div class="option-container" id="penContainer" onclick="selectOption('penCheck')" >
                             <input class="option-checkbox" type="checkbox" name="penSelected" id="penCheck" onchange="updateOptionBox('penCheck','numPens','penContainer')">
                             <img class="option-image" src="img/noun_Pen_838648.png">  
-                            <div class="option-label"><p>PerfectWrite Custom Inkpen<sup>2</sup></p></div>
-                            <input class="option-number" type="number" id="numPens" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
+                            <div class="option-label"><p>PerfectWrite Custom Inkpen<sup>2</sup></p><p>$15.00</p></div>
+                            <input class="option-number" type="number" id="numPens" name="numPens" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
                         </div>
                         <div class="option-container" id="rockContainer" onclick="selectOption('rockCheck')">
                             <input class="option-checkbox" type="checkbox" name="rockSelected" id="rockCheck" onchange="updateOptionBox('rockCheck','numRocks','rockContainer')">
                             <img class="option-image" src="img/noun_rock_711504.png">  
-                            <div class="option-label"><p>Organic+ Paperweight<sup>3</sup></p></div>
-                            <input class="option-number" type="number" id="numRocks" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
+                            <div class="option-label"><p>Organic+ Paperweight<sup>3</sup></p><p>$25.00</p></div>
+                            <input class="option-number" type="number" id="numRocks" name="numRocks" min="1" step="1" value="1" hidden="hidden" onclick="event.stopPropagation();">
                         </div>
                     </div>
                 </fieldset>
                 <fieldset id="shipping">
                     <legend>Shipping</legend>
                     <div>
-                        <input type="radio" name="shipping" id="sevenday" value="0.00">
-                        <label form="form" for="q2_a"><b>Free</b> 7 Business Days</label><br>
-                        <input type="radio" name="shipping" id="overnight" value="50.00">
-                        <label form="form" for="q2_b"><b>$50.00</b> Overnight</label><br>
-                        <input type="radio" name="shipping" id="threeday" value="5.00">
-                        <label form="form" for="q2_c"><b>$5.00</b> 3 Business Days</label><br>
+                        <input type="radio" name="shipping" id="sevenday" value="0">
+                        <label form="form" for="sevenday"><b>Free</b> 7 Business Days</label><br>
+                        <input type="radio" name="shipping" id="overnight" value="50">
+                        <label form="form" for="overnight"><b>$50.00</b> Overnight</label><br>
+                        <input type="radio" name="shipping" id="threeday" value="5">
+                        <label form="form" for="threeday"><b>$5.00</b> 3 Business Days</label><br>
                     </div>
                 </fieldset>
                 <button type="reset" id="reset" value="Reset" onclick="resetForm()">Reset</button>
@@ -62,4 +68,5 @@
         [2]: Pen by Dev Patel from the Noun Project<br>
         [3]: rock by Kevin from the Noun Project
     </footer>
+</body>
 </html>
